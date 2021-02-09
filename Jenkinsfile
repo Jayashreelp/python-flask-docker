@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Test1Stage') {
       steps {
-        sh 'docker build -t python-flask-docker .'
+        sh 'ls -lrt'
       }
     }
 
