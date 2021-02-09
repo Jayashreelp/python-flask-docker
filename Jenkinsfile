@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Test1Stage') {
       steps {
-        sh 'ls -lrt'
+        sh 'docker build .'
       }
     }
 
