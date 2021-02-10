@@ -4,6 +4,7 @@ pipeline {
     stage('Test1Stage') {
       steps {
         sh 'docker build .'
+        sh 'docker run -p 8888:8080 python-flask-docker'
       }
     }
 
