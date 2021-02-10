@@ -16,6 +16,8 @@ docker run --name jaya-container1 -d -p 8888:8080 python-flask-docker-app'''
 
   }
   environment {
-    Dev = 'Dev'
+    Major = '1'
+    Minor = '0'
+    Revision = '0'
   }
 }
