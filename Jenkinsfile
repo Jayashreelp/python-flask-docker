@@ -1,12 +1,12 @@
 pipeline {
-  agent any
-  stages {
-    stage('Building our image') {
-      environment {
+  environment {
         registry = 'jayashreelp'
         registryCredential = 'dockerid'
         dockerImage = ''
       }
+  agent any
+  stages {
+    stage('Building our image') { 
       steps {
         sh 'dockerImage = docker.build registry + ":$BUILD_NUMBER"'
       }
@@ -20,8 +20,5 @@ dockerImage.push()'''
       }
 
     }
-    environment {
-      registry = 'jayashreelp'
-      registrycredentialdockerim = 'dockerid'
     }
   }
