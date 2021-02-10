@@ -5,12 +5,12 @@ pipeline {
       steps {
         sh '''#docker rmi python-flask-docker-app
 
-docker build . -t python-flask-docker-app:${Major}.${Minor}.${Revision}.${BUILDNUMBER}'''
+docker build . -t python-flask-docker-app:${Major}.${Minor}.${Revision}.${BUILD_NUMBER}'''
         sh '''docker stop jaya-container1
 
 docker rm jaya-container1
 
-docker run --name jaya-container1 -d -p 8888:8080 python-flask-docker-app:${Major}.${Minor}.${Revision}.${BUILDNUMBER}'''
+docker run --name jaya-container1 -d -p 8888:8080 python-flask-docker-app:${Major}.${Minor}.${Revision}.${BUILD_NUMBER}'''
       }
     }
 
