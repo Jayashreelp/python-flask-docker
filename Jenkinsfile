@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh '''docker rmi python-flask-docker-app
 
-docker build . -t python-flask-docker-app'''
+docker build . -t python-flask-docker-app:${Major}.${Minor}.${Revision}.${BUILDNUMBER}'''
         sh '''docker stop jaya-container1
 
 docker rm jaya-container1
