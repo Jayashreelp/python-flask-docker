@@ -1,17 +1,27 @@
 pipeline {
   agent any
   stages {
-    stage('Test1Stage') {
+    stage('Building our image') {
+      environment {
+        registry = 'jayashreelp'
+        registryCredential = 'dockerid'
+        dockerImage = '\' \''
+      }
       steps {
-        sh 'docker build -t python-flask-docker .'
-        sh 'docker run --name jaya-container1 -d -p 8888:8080 python-flask-docker'
-        sh 'docker tag python-flask-docker jayashreelp/python-flask-docker'
-        sh 'docker push jayashreelp/python-flask-docker'
+        sh 'dockerImage = docker.build registry + ":$BUILD_NUMBER"'
       }
     }
 
+    stage('Deploy our image') {
+      steps {
+        sh '''docker.withRegistry( \'\', registryCredential ) {
+dockerImage.push()'''
+        }
+      }
+
+    }
+    environment {
+      registry = 'jayashreelp'
+      registrycredentialdockerim = 'dockerid'
+    }
   }
-  environment {
-    Dev = 'Dev'
-  }
-}
