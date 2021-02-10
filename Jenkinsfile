@@ -5,8 +5,8 @@ pipeline {
       steps {
         sh 'docker build -t python-flask-docker .'
         sh 'docker run --name jaya-container1 -d -p 8888:8080 python-flask-docker'
-        sh 'docker tag python-flask-app jayashreelp/python-flask-docker'
-        sh 'docker push jayashreelp/python-flask-app'
+        sh 'docker tag python-flask-docker jayashreelp/python-flask-docker'
+        sh 'docker push jayashreelp/python-flask-docker'
       }
     }
 
