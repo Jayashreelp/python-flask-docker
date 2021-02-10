@@ -5,7 +5,7 @@ pipeline {
       environment {
         registry = 'jayashreelp'
         registryCredential = 'dockerid'
-        dockerImage = '\' \''
+        dockerImage = ''
       }
       steps {
         sh 'dockerImage = docker.build registry + ":$BUILD_NUMBER"'
