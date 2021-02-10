@@ -15,6 +15,7 @@ docker rm jaya-container1
 
 docker run --name jaya-container1 -d -p 8888:8080 python-flask-docker-app:${Major}.${Minor}.${Revision}.${BUILD_NUMBER}'''
         sh 'docker tag python-flask-docker-app:${Major}.${Minor}.${Revision}.${BUILD_NUMBER} ${DOCKER_REPO}/python-flask-docker-app:${Major}.${Minor}.${Revision}.${BUILD_NUMBER} '
+        sh 'docker push ${DOCKER_REPO}/python-flask-docker-app:${Major}.${Minor}.${Revision}.${BUILD_NUMBER} '
       }
     }
 
